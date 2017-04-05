@@ -9,6 +9,7 @@
 	<name>SSHFrame Maven Webapp</name>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.3.3.RELEASE</spring.version>
 		<hibernate.version>5.2.3.Final</hibernate.version>
 	</properties>
@@ -134,12 +135,23 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>6.0.4</version>
 		</dependency>
-
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
+<!-- 
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.8.1</version>
+		</dependency>
+		-->
 	</dependencies>
 
 	<!-- 指定maven编译方式为jdk1.8版本 -->
@@ -160,16 +172,16 @@
 
 	<build>
 		<finalName>SSHFrameAnno</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <!-- 配置此项是防止缺失web.xml文件导致项目打包失败,因为此项目将被用于web整合, web整合时各个web模块的同名文件以上级项目优先级最高,也就是说本项目web.xml将被覆盖, 
-                        因此本项目可以不具备web.xml文件,为了防止本项目不具备web.xml文件从而导致打包失败, 故配置此项。 -->
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-        </plugins>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<!-- 配置此项是防止缺失web.xml文件导致项目打包失败,因为此项目将被用于web整合, web整合时各个web模块的同名文件以上级项目优先级最高,也就是说本项目web.xml将被覆盖, 
+						因此本项目可以不具备web.xml文件,为了防止本项目不具备web.xml文件从而导致打包失败, 故配置此项。 -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
